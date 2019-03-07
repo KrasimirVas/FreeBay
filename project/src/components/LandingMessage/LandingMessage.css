@@ -1,0 +1,52 @@
+
+div.welcome-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 3em 0;
+    text-align: center;
+    
+ 
+
+}
+
+div.welcome-wrapper p{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+
+}
+
+div.welcome {
+    padding: 10px;
+    box-shadow: 0px 5px 10px 5px #cecece;
+}
+
+div.welcome a {
+    padding: 10px;
+    background-color: rgb(88, 182, 92);
+    border-radius: 0.5em;
+    outline: none;
+    text-decoration: none;
+    color: white;
+    margin: 10px;
+    border: 2px solid rgb(88, 182, 92);
+    
+}
+
+div.welcome a:hover {
+    background-color: white;
+    color: rgb(88, 182, 92);
+    border: 2px solid rgb(88, 182, 92);
+}
+
+div.welcome p {
+    font-size: 18px;
+    margin: 25px
+}
+@media screen and (max-width: 800px){
+
+    div.welcome-wrapper > p a{
+        width: 100%;
+    }
+}
