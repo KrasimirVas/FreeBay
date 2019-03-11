@@ -1,13 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import {  BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';import Home from './views/Home';
+import 'react-toastify/dist/ReactToastify.css';
+import Home from './views/Home';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import NotFound from './views/Not-found';
 import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Create from './components/Create/Create';
 
 
 
@@ -98,15 +100,35 @@ class App extends Component {
      
     })
   } 
+  logout() {
+    this.setState({
+      username: null,
+      isAdmin: false
+    })    
+    localStorage.removeItem('username');    
+    localStorage.removeItem('isAdmin');
+  }
   render() {
     return (
-      <div>
-      <Router>
-        <Fragment>
-          <Header/>                    
+      <div className="App">
+      <ToastContainer/>
+        <Router>
+          <div>
+            <Header  isAdmin={this.state.isAdmin} username={this.state.username} logout={this.logout.bind(this)}/>
           <Switch>
-              <Route path="/" exact component={Home}/>
-              <Route
+
+          <Route
+            exact
+             render={
+               (props) => 
+               <Home
+               {...props}
+                movies ={this.state.movies}               
+               />}
+                path="/"/>
+            
+            
+            <Route
              render={
                (props) => 
                <Register
@@ -116,14 +138,19 @@ class App extends Component {
                />}
                 path="/register"
             />
-              <Route path="/login" exact component={Login}/>
-              <Route component={NotFound}/>
-          </Switch>         
-         <Footer/>
-        </Fragment>
-        </Router>
+            <Route 
+            render={
+               () => 
+               <Login
+               
+                handleSubmit ={this.handleSubmit.bind(this)}
+                handleChange={this.handleChange}
+               />}
+                path="/login"/>
+          </Switch>
+          </div>
+         </Router>
       </div>
-      
     );
   }
 }

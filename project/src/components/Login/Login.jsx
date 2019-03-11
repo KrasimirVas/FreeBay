@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import './Login.css';
 
 class Login extends Component {
-
+  constructor(props){
+    super(props);
+    this.state={
+      username:null,
+      password:null,
+      
+    }
+    this.handleChange=props.handleChange.bind(this);
+  }
 
   render() {
     return (
