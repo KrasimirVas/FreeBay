@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import {  BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Home from './views/Home';
@@ -10,146 +10,204 @@ import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Create from './components/Create/Create';
+import Store from './components/Store/Store';
+import Details from './components/Details/Details';
 
 
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      username:null,
+      username: null,
       isAdmin: false
     }
   }
-  componentWillMount(){
-    const isAdmin=localStorage.getItem('isAdmin') ==='true';
-    if(localStorage.getItem('username')){
+  componentWillMount() {
+    const isAdmin = localStorage.getItem('isAdmin') === 'true';
+    if (localStorage.getItem('username')) {
       this.setState({
         username: localStorage.getItem('username'),
-        isAdmin:isAdmin,
-        movies:[],
-        selectedMovieId:0
+        isAdmin: isAdmin,
+        movies: [],
+        selectedMovieId: 0
       })
     }
     fetch('http://localhost:9999/feed/movies')
-    .then(rawData => rawData.json())
-    .then(body => {
-      this.setState({
-        movies:body.movies
+      .then(rawData => rawData.json())
+      .then(body => {
+        this.setState({
+          movies: body.movies
+        });
+        toast.success(body.message, {
+          closeButton: false
+        });
       });
-      toast.success(body.message, {
-        closeButton:false
-      });
-    });
   }
-  handleChange(e){
-    
+  handleChange(e) {
+
     this.setState({
       [e.target.name]: e.target.value
-      
+
     })
   }
-  handleSubmit(e, data, isSignUp){
-    e.preventDefault(); 
-    
-    fetch('http://localhost:9999/auth/sign' + (isSignUp ? 'up': 'in'), {
+  handleSubmit(e, data, isSignUp) {
+    e.preventDefault();
+
+    fetch('http://localhost:9999/auth/sign' + (isSignUp ? 'up' : 'in'), {
       method: 'post',
       body: JSON.stringify(data),
-      headers: {'Content-Type': 'application/json'}
+      headers: { 'Content-Type': 'application/json' }
     }).then(rawData => rawData.json())
-    .then(responseBody => {
-      if(responseBody.username){
-        this.setState({
-          username:responseBody.username,
-          isAdmin:responseBody.isAdmin
-        });
-        localStorage.setItem('username', responseBody.username);
-        localStorage.setItem('isAdmin', responseBody.isAdmin);
-        
-        toast.success(`Welcome, ${responseBody.username}`, {
-          closeButton:false
-        });
-      }
-      else{
-        toast.error(responseBody.message, {
-          closeButton:false
-        });
-      }
-    })
+      .then(responseBody => {
+        if (responseBody.username) {
+          this.setState({
+            username: responseBody.username,
+            isAdmin: responseBody.isAdmin
+          });
+          localStorage.setItem('username', responseBody.username);
+          localStorage.setItem('isAdmin', responseBody.isAdmin);
+
+          toast.success(`Welcome, ${responseBody.username}`, {
+            closeButton: false
+          });
+        }
+        else {
+          toast.error(responseBody.message, {
+            closeButton: false
+          });
+        }
+      })
   }
-  handleCreateSubmit(e, data){
-    e.preventDefault(); 
-    
+  handleCreateSubmit(e, data) {
+    e.preventDefault();
+
     fetch('http://localhost:9999/feed/movie/create', {
       method: 'post',
       body: JSON.stringify(data),
-      headers: {'Content-Type': 'application/json'}
-  }).then(rawData => rawData.json())
-    .then(responseBody => {
-      if(!responseBody.errors) {
-        toast.success(responseBody.message, {
-          closeButton:false
-        });
-      }
-    
-      else{
-        toast.error(responseBody.message, {
-          closeButton:false
-        });
-      }
-     
-    })
-  } 
+      headers: { 'Content-Type': 'application/json' }
+    }).then(rawData => rawData.json())
+      .then(responseBody => {
+        if (!responseBody.errors) {
+          toast.success(responseBody.message, {
+            closeButton: false
+          });
+        }
+
+        else {
+          toast.error(responseBody.message, {
+            closeButton: false
+          });
+        }
+
+      })
+  }
+  handleCreateSubmit(e, data) {
+    e.preventDefault();
+
+    fetch('http://localhost:9999/feed/movie/create', {
+      method: 'post',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
+    }).then(rawData => rawData.json())
+      .then(responseBody => {
+        if (!responseBody.errors) {
+          toast.success(responseBody.message, {
+            closeButton: false
+          });
+        }
+
+        else {
+          toast.error(responseBody.message, {
+            closeButton: false
+          });
+        }
+
+      })
+  }
   logout() {
     this.setState({
       username: null,
       isAdmin: false
-    })    
-    localStorage.removeItem('username');    
+    })
+    localStorage.removeItem('username');
     localStorage.removeItem('isAdmin');
   }
   render() {
     return (
       <div className="App">
-      <ToastContainer/>
+        <ToastContainer />
         <Router>
           <div>
-            <Header  isAdmin={this.state.isAdmin} username={this.state.username} logout={this.logout.bind(this)}/>
-          <Switch>
+            <Header isAdmin={this.state.isAdmin} username={this.state.username} logout={this.logout.bind(this)} />
+            <Switch>
 
-          <Route
-            exact
-             render={
-               (props) => 
-               <Home
-               {...props}
-                movies ={this.state.movies}               
-               />}
-                path="/"/>
-            
-            
-            <Route
-             render={
-               (props) => 
-               <Register
-               {...props}
-                handleSubmit ={this.handleSubmit.bind(this)}
-                handleChange={this.handleChange}
-               />}
+              <Route
+                exact
+                render={
+                  (props) =>
+                    <Home                    
+                    />}
+                path="/" />
+              <Route
+                render={
+                  (props) =>
+                    this.state.isAdmin ?
+                      <Create
+                        {...props}
+                        handleCreateSubmit={this.handleCreateSubmit.bind(this)}
+                        handleChange={this.handleChange}
+                      /> :
+                      <Redirect
+                        to={{
+                          pathname: '/login'
+                        }}
+                      />
+                }
+                path="/create"
+              />
+              <Route
+                exact
+                render={
+                  (props) =>
+                    <Store
+                      {...props}
+                      movies={this.state.movies}
+                    />}
+                path="/store" />
+              <Route
+                render={
+                  (props) =>
+                    <Details
+                      {...props}
+                      movie={this.state.movies[this.state.selectedMovieId]}
+                    />}
+                path="/movies/:id"
+
+              />
+
+              <Route
+                render={
+                  (props) =>
+                    <Register
+                      {...props}
+                      handleSubmit={this.handleSubmit.bind(this)}
+                      handleChange={this.handleChange}
+                    />}
                 path="/register"
-            />
-            <Route 
-            render={
-               () => 
-               <Login
-               
-                handleSubmit ={this.handleSubmit.bind(this)}
-                handleChange={this.handleChange}
-               />}
-                path="/login"/>
-          </Switch>
+              />
+              <Route
+                render={
+                  () =>
+                    <Login
+
+                      handleSubmit={this.handleSubmit.bind(this)}
+                      handleChange={this.handleChange}
+                    />}
+                path="/login" />
+            </Switch>
           </div>
-         </Router>
+        </Router>
       </div>
     );
   }

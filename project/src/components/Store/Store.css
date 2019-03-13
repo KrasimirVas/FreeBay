@@ -1,0 +1,59 @@
+.Store {
+  text-align: center;
+}
+.Store h2,h3,h4{
+  margin:0;
+  padding-bottom:1rem;
+}
+
+.Store ul.movies {
+  display: flex;
+  margin: 0 auto;  
+  justify-content: center;
+  flex-wrap: wrap;
+  
+}
+
+.Store li.movie {
+  padding:1rem;
+  text-decoration: none;
+  list-style: none;
+  border: 1.5px solid #ccc;
+  margin:2rem;
+}
+
+.Store .trailer {
+  margin: 0 auto;
+}
+
+.Store img {
+  width:18rem;
+  height: 12rem;
+}
+.Store li.movie:hover{  
+    box-shadow: 0 1px 5rem rgba(0,0,0,0.5);
+    transform: scale(1.2);
+    border: none;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+  }
+
+
+button{  
+  width: 60%;
+  margin:0 auto;
+  border: 2px solid dodgerblue;
+  text-align: center;  
+  font-size: 14px;
+  background: dodgerblue;
+  color: white;
+  border-radius: 7px;
+  margin-top: 20px; 
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.5); 
+  padding: 10px 20px;
+}
+
+button:hover{
+  color: dodgerblue;
+  background: transparent;
+}

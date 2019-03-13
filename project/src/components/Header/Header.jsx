@@ -13,21 +13,19 @@ class Header extends Component {
                     {this.props.username ?
                         <span>
                             <NavLink exact to="#">Welcome {this.props.username}!</NavLink>
-                            
-                            {this.props.isAdmin  ?
+
+                            {this.props.isAdmin ?
                                 <span>
                                     <NavLink to="/create">Create</NavLink>
                                 </span>
-                               : 
-                               <span>
-                                   <NavLink to="/store">Store</NavLink>
+                                :
+                                <span>
                                     <NavLink to="/myAlbums">My Albums</NavLink>
-                               </span>
-                               }
-                            
-                            <NavLink  to="/" onClick={this.props.logout} >Logout</NavLink>
-                                                      
-                            </span> 
+                                </span>
+                            }
+                            <NavLink to="/store">Store</NavLink>
+                            <NavLink to="/" onClick={this.props.logout} >Logout</NavLink>
+                        </span>
                         :
                         <span>
                             <a href="/register">Register</a>
@@ -35,7 +33,6 @@ class Header extends Component {
                         </span>}
                 </div>
             </header >
-
         );
     };
 }
