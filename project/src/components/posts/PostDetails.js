@@ -5,37 +5,26 @@ import React, { Component } from 'react';
 
 export default class PostDetails extends Component {
 
-    render () {
+    render() {
         return (
-            <div>
-                <div className="card">
-                    <div className="row">
-                        <div className="col-md-6">
-                            <div className="preview-pic tab-content">
-                                <div className="tab-pane active">
-                                    <img className="card-img-top" src={this.props.image}
-                                        alt="product" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="text-center">
-                                <div className="card-title text-uppercase">
-                                    <h2>{this.props.title}</h2>
-                                </div>
-                                <hr />
-                                <div className="text-center">
-                                    <div className="card-title">
-                                        <h2>Description</h2>
-                                    </div>
-                                    <p>{this.props.description}</p>
-                                </div>
-                            </div>
-                        </div>
+            <div className="card-details">
+                <div className="card-wrapper">
+                    <div className="card-img">
+                        <img className="card-img" src={this.props.image} alt="product" />
                     </div>
+                    <div className="card-title">
+                        <h2>{this.props.title}</h2>
+                    </div>
+                    <div className="card-description">
+                        <h2>Description</h2>
+                        <p>{this.props.description}</p>
+                    </div>
+
                 </div>
-                
+
             </div>
+
+
         )
     }
 }

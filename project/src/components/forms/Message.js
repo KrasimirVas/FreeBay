@@ -28,13 +28,14 @@ export default class Message extends Component {
     }
     render () {
         return (
-            <div className="row">
-                <form className="col-md-8" onSubmit={this.handleSubmit}>
-                    <div className="form-group text-left">
-                        <label htmlFor="message"><b>Contact Seller</b></label>
-                        <textarea onChange={this.handleChange} rows="6" cols="20" className="form-control" placeholder="Your message.." name="message" id="message" value={this.state.message} required />
+            <div className="messageForm">
+                <form onSubmit={this.handleSubmit}>
+                    <div className="message">
+                        <label htmlFor="message"><b>Contact Owner</b></label>
+                        <br/>
+                        <textarea onChange={this.handleChange} rows="6" cols="20"  placeholder="Write your message here..." name="message" id="message" value={this.state.message} required />
                     </div>
-                        <input type="submit" className="btn btn-success text-left" value="Send Message" />
+                        <input type="submit"  value="Send " />
                 </form>
             </div>
         )

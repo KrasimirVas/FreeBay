@@ -129,6 +129,9 @@ footer{
   font-size: 1.5rem;
   
 }
+.push{
+  height: 70px;
+}
 
 
 
@@ -200,4 +203,179 @@ footer{
   border: none;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   z-index: 1;
+}
+.login form {
+  display: grid;
+  width: 25%;
+  margin: 0 auto;
+}
+.login label{
+  font-size:1.2rem;
+  font-weight: bold;
+}
+
+.login input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 7px;
+}
+
+.login input[type="submit"]{  
+  width: 35%;
+  margin:0 auto;
+  border: 2px solid dodgerblue;
+  text-align: center;  
+  font-size: 14px;
+  background: dodgerblue;
+  color: white;
+  border-radius: 7px;
+  margin-top: 20px; 
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.5); 
+}
+
+.login input[type="submit"]:hover{
+  color: dodgerblue;
+  background: transparent;
+  font-weight: bold;
+}
+
+.register{
+  padding-top: 2em;
+}
+.register label{
+  font-weight: bold;
+}
+
+.register form {
+  display: grid;
+  width: 25%;
+  margin: 0 auto;
+}
+
+.register input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 7px;
+}
+
+.register input[type="submit"]{  
+  width: 25%;
+  margin:0 auto;
+  border: 2px solid dodgerblue;
+  text-align: center;  
+  font-size: 14px;
+  background: dodgerblue;
+  color: white;
+  border-radius: 7px;
+  margin-top: 20px; 
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.5); 
+}
+
+.register input[type="submit"]:hover{
+  color: dodgerblue;
+  background: transparent;
+  font-weight: bold;
+}
+
+.createPost, .editPost{
+  padding-top: 2em;
+}
+.createPost label, .editPost label{
+  font-weight: bold;
+}
+
+.createPost form, .editPost form {
+  display: grid;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.createPost input, .editPost input {
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 7px;
+  width:50%;
+}
+#description{
+  width:50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 7px;
+}
+
+.createPost input[type="submit"]{  
+  width: 25%;
+  margin:0 auto;
+  border: 2px solid dodgerblue;
+  text-align: center;  
+  font-size: 14px;
+  background: dodgerblue;
+  color: white;
+  border-radius: 7px;
+  
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.5); 
+}
+
+.createPost input[type="submit"]:hover{
+  color: dodgerblue;
+  background: transparent;
+  font-weight: bold;
+}
+#selectForm select{
+  
+  width:50%;
+}
+#editBtn{ 
+  width: 25%;
+  margin:0 auto;
+  border: 2px solid black;
+  text-align: center;  
+  font-size: 14px;
+  background: rgb(255, 221, 30);
+  color: black;
+  border-radius: 7px;
+  font-weight: bold;
+  
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.5); 
+}
+.card-wrapper{
+  margin-top:20px;
+}
+
+.card-wrapper img{
+  width:50%;
+  height: auto;
+  background-color: rgb(134, 170, 211);
+  padding:1px;
+   border:1px solid #173464;
+}
+.card-description{
+  border:1px solid grey;
+  width:50%;
+  margin:0 auto;
+}
+#message{
+  width:50%;
+  margin:0 auto;
+  border-radius:8px;
+  border:1px solid grey;
+}
+.messageForm input[type="submit"]{  
+  width: 20%;
+  margin:0 auto;
+  border: 2px solid dodgerblue;
+  text-align: center;  
+  font-size: 14px;
+  background: dodgerblue;
+  color: white;
+  border-radius: 7px;
+  margin-top: 20px; 
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.5); 
+  padding:4px;
+}
+
+.messageForm input[type="submit"]:hover{
+  color: dodgerblue;
+  background: transparent;
+  font-weight: bold;
 }

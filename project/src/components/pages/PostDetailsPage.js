@@ -5,8 +5,8 @@ import { toast } from 'react-toastify'
 import MessageForm from '../forms/Message';
 import PostDetails from '../posts/PostDetails';
 
-const POST_DETAILS_ENDPOINT = 'post/details';
-const MESSAGE_ENDPOINT = 'messages/create';
+const postDetailsPath = 'post/details';
+const messagePath = 'messages/create';
 
 export default class PostDetailsPage extends Component {
     constructor(props){
@@ -22,7 +22,7 @@ export default class PostDetailsPage extends Component {
     componentDidMount() {
         let id = this.props.match.params.id;
 
-        fetcher.get(POST_DETAILS_ENDPOINT + `?id=${id}`, res => {
+        fetcher.get(postDetailsPath + `?id=${id}`, res => {
             this.setState({
                 post: res.post,
             });  
@@ -31,7 +31,7 @@ export default class PostDetailsPage extends Component {
 
     sendMessage (body) {
         body.recipient = this.state.post.author;
-        fetcher.post(MESSAGE_ENDPOINT, body, res => {
+        fetcher.post(messagePath, body, res => {
             if(res.error) {
                 toast.error(res.error);
                 return;

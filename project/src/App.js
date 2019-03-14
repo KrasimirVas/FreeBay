@@ -7,6 +7,7 @@ import './App.css';
 import Footer from './components/common/Footer';
 import AppRouter from './AppRouter';
 import Menu from './components/common/Navigation';
+import FooterPush from './components/common/Footer-push';
 
 class App extends Component {
   render() {
@@ -15,7 +16,8 @@ class App extends Component {
         <Menu />
         <ToastContainer autoClose={1000}/>
         <AppRouter />
-        
+        <FooterPush/>
+        <Footer/>
       </div>
     );
   }

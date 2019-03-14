@@ -18,7 +18,7 @@ class Login extends Component {
     }
 
     handleChange(event) {
-        this.setState({[event.target.name] : event.target.value});
+        this.setState({ [event.target.name]: event.target.value });
     }
 
     handleSubmit(e) {
@@ -44,24 +44,18 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="offset-4 col-4">
-                    <form onSubmit={this.handleSubmit}>
-                        <h1 className="text-center">Login</h1>
-                        <hr/>
-                        <div className="form-group text-left">
-                            <label htmlFor="username"><b>Username</b></label>
-                            <input type="text" onChange={this.handleChange} className="form-control" placeholder="Username" name="username" id="login-username" required />
-                        </div>
-                        <div className="form-group text-left">
-                            <label htmlFor="password"><b>Password</b></label>
-                            <input type="password" onChange={this.handleChange} className="form-control" placeholder="Password" name="password" id="login-password" required />
-                        </div>
-                        <br/>
-                        <input type="submit" className="btn btn-success" value="Login" />
-                    </form>
-                </div>
+            <div className="login">
+                <h1>Login</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <label htmlFor="username">Username</label>
+                    <input type="text" onChange={this.handleChange} name="username" placeholder="Vanko82" id="login-username" required />
+
+                    <label htmlFor="password">Password</label>
+                    <input type="password" onChange={this.handleChange} name="password" placeholder="******" id="login-password" required />
+                    <input type="submit"  value="Login" />
+                </form>
             </div>
+
         )
     }
 }

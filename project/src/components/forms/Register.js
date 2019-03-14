@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 const authRegisterPath = 'auth/register';
 
 class Register extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -20,7 +20,7 @@ class Register extends Component {
     }
 
     handleChange(event) {
-        this.setState({[event.target.name] : event.target.value});
+        this.setState({ [event.target.name]: event.target.value });
     }
 
     handleSubmit(e) {
@@ -43,29 +43,22 @@ class Register extends Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="offset-4 col-4">
-                    <form onSubmit={this.handleSubmit}>
-                        <h1 className="text-center">Register</h1>
-                        <p className="text-center">Please fill in this form to create an account.</p>
-                        <hr/>
-                        <div className="form-group text-left">
-                            <label htmlFor="username"><b>Username</b></label>
-                            <input type="text" onChange={this.handleChange} className="form-control" placeholder="Username" name="username" id="username" value={this.state.username} required />
-                        </div>
-                        <div className="form-group text-left">
-                            <label htmlFor="password"><b>Password</b></label>
-                            <input type="password" onChange={this.handleChange} className="form-control" placeholder="Password" name="password" id="password" required />
-                        </div>
-                        <div className="form-group text-left">
-                            <label htmlFor="confirm-password"><b>Confirm Password</b></label>
-                            <input type="password" onChange={this.handleChange} className="form-control" placeholder="Confirm Password" name="confirmPassword" id="confirm-password" required />
-                        </div>
-                        <br/>
-                        <input type="submit" className="btn btn-warning" value="Register" />
-                    </form>
-                </div>
+            <div className="register">
+                <h1>Register</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <label htmlFor="username">Username</label>
+                    <input type="text" onChange={this.handleChange} placeholder="Username" name="username" id="username" value={this.state.username} required />
+
+                    <label htmlFor="password">Password</label>
+                    <input type="password" onChange={this.handleChange} placeholder="Password" name="password" id="password" required />
+                    <label htmlFor="confirm-password">Confirm Password</label>
+                    <input type="password" onChange={this.handleChange} placeholder="Confirm Password" name="confirmPassword" id="confirm-password" required />
+
+                    <input input type="submit" value="Register" />
+                </form>
             </div>
+
+
         )
     }
 };

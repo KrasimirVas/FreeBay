@@ -78,34 +78,40 @@ export default class PostCreateForm extends Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="offset-4 col-4">
-                    <form encType="multipart/form-data" onSubmit={this.handleSubmit}>
-                        <h1 className="text-center">Edit Post</h1>
-                        <hr/>
-                        <div className="form-group text-left">
+            <div className="editPost">
+                
+                    <form onSubmit={this.handleSubmit}>
+                        <h1 >Edit Post</h1>
+                       
+                        <div >
                             <label htmlFor="title"><b>Title</b></label>
-                            <input type="text" onChange={this.handleChange} className="form-control" placeholder="Title" name="title" id="title" value={this.state.title} required />
+                            <br/>
+                            <input type="text" onChange={this.handleChange} placeholder="Title" name="title" id="title" value={this.state.title} required />
                         </div>
-                        <div className="form-group text-left">
+                        <div id="selectForm" >
                             <label htmlFor="category"><b>Category</b></label>
-                            <select className="form-control" onChange={this.handleChange} name="category" id="category" value={this.state.category}>
+                            <br/>
+                            <select  onChange={this.handleChange} name="category" id="category" value={this.state.category}>
                                 {this.state.categories.map((cat, index) => <option value={cat._id} key={index + 1} >{cat.title}</option>)}
                             </select> 
                         </div>
-                        <div className="form-group text-left">
+                        <div >
                             <label htmlFor="image"><b>Image URL</b></label>
-                            <input type="text" onChange={this.handleChange} className="form-control" name="image" id="image" required value={this.state.image}/>
+                            <br/>
+                            <input type="text" onChange={this.handleChange}  name="image" id="image" required value={this.state.image}/>
                         </div>
-                        <div className="form-group text-left">
+                        <div >
                             <label htmlFor="description"><b>Description</b></label>
-                            <textarea onChange={this.handleChange} rows="6" cols="20" minLength="20" className="form-control" placeholder="Description" name="description" id="description" required value={this.state.description} />
+                            <br/>
+                            <textarea onChange={this.handleChange} rows="6" cols="20" minLength="20"  placeholder="Description" name="description" id="description" required value={this.state.description} />
                         </div>
                         <br/>
-                        <input type="submit" className="btn btn-warning" value="Edit" />
+                        <input type="submit" id="editBtn" value="Edit" />
                     </form>
                 </div>
-            </div>
+            
+
+
         )
     }
 }
