@@ -1,28 +1,24 @@
 {
-  "name": "project",
+  "name": "buy-and-sale",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "node-sass": "^4.11.0",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5",
-    "react-toastify": "^4.5.2"
+    "@fortawesome/fontawesome-svg-core": "1.2.0-14",
+    "@fortawesome/free-solid-svg-icons": "5.1.0-11",
+    "@fortawesome/react-fontawesome": "0.1.0-11",
+    "axios": "0.18.0",
+    "bootstrap": "4.1.1",
+    "jwt-decode": "2.2.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-router-dom": "4.3.1",
+    "react-scripts": "1.1.4",
+    "react-toastify": "4.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  }
 }

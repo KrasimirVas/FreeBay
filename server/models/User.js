@@ -1,53 +1,72 @@
 const mongoose = require('mongoose');
-const encryption = require('../util/encryption');
-const Schema = mongoose.Schema;
+const encryption = require('../utilities/encryption');
+const proppertyIsRequred = `{0} is required.`;
 
-const userSchema = new Schema({
-  email: {
-    type: Schema.Types.String,
-    required: true
-  },
-  hashedPassword: {
-    type: Schema.Types.String,
-    required: true
-  },
-  username: {
-    type: Schema.Types.String,
-    required: true
-  },
-  salt: {
-    type: Schema.Types.String,
-    required: true
-  },
-  roles: [{type: Schema.Types.String, required: true}]
+let userSchema = new mongoose.Schema({
+    username: {
+        type: mongoose.SchemaTypes.String,
+        required: proppertyIsRequred.replace('{0}', 'Username'),
+        unique: true
+    },
+    password: {
+        type: mongoose.SchemaTypes.String,
+        required: proppertyIsRequred.replace('{0}', 'Password')
+    },
+    salt: {
+        type: mongoose.SchemaTypes.String,
+        required: true
+    },
+    roles: [{
+        type: mongoose.SchemaTypes.String
+    }],
+    posts: [{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'Post'
+    }],
+    messages:[{
+        type:mongoose.SchemaTypes.ObjectId,
+        ref: 'Message'
+    }],
+    favourites: [{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'Post'
+    }],
+    isDisabled:{
+        type: mongoose.SchemaTypes.Boolean,
+        default: false
+    }
 });
 
 userSchema.method({
-  authenticate: function (password) {
-    const currentHashedPass = encryption.generateHashedPassword(this.salt, password);
+    authenticate: function (password) {
+        let hashedPassword = encryption.generateHashedPassword(this.salt, password);
 
-    return currentHashedPass === this.hashedPassword;
-  }
+        if (hashedPassword === this.password) {
+            return true;
+        }
+
+        return false;
+    }
 });
 
-const User = mongoose.model('User', userSchema);
-
-User.seedAdminUser = async () => {
-  try {
-    let users = await User.find();
-    if (users.length > 0) return;
-    const salt = encryption.generateSalt();
-    const hashedPassword = encryption.generateHashedPassword(salt, 'Admin');
-    return User.create({
-      username: 'Admin',
-      email: 'Admin@gmail.com',
-      salt,
-      hashedPassword,
-      roles: ['Admin']
-    });
-  } catch (e) {
-    console.log(e);
-  }
-};
+let User = mongoose.model('User', userSchema);
 
 module.exports = User;
+
+module.exports.seedAdminUser = () => {
+    User.find({
+        username: 'admin'
+    }).then(users => {
+        if (users.length === 0) {
+            let salt = encryption.generateSalt();
+            let hashedPassword = encryption.generateHashedPassword(salt, 'admin123');
+
+            User.create({
+                username: 'admin',
+                password: hashedPassword,
+                salt: salt,
+                roles: ['Admin']
+            });
+        }
+    });
+};
