@@ -6,8 +6,7 @@ export default class AdminUserTableElement extends Component {
         <tr>
             <td>{this.props.index}</td>
             <td>{this.props.username}</td>
-            <td>{this.props.posts.length}</td>
-            <td>{this.props.favourites.length}</td>
+            <td>{this.props.posts.length}</td>            
             <td>{this.props.roles}</td>
             <td>
                 <button 
@@ -16,8 +15,8 @@ export default class AdminUserTableElement extends Component {
                     : "btn btn-sm btn-danger"} 
                 onClick={() => this.props.disable(this.props._id)}>
                     {this.props.isDisabled 
-                        ? 'Enable' 
-                        : 'Disable'}
+                        ? 'Unblock' 
+                        : 'Block'}
                 </button>
             </td>
         </tr>

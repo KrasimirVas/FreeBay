@@ -62,8 +62,7 @@ export default class Users extends Component {
                             <tr>
                                 <th>N</th>
                                 <th>Username</th>
-                                <th>Number of posts</th>
-                                <th>Number Favourites</th>
+                                <th>Number of posts</th>                                
                                 <th>Roles</th>
                                 <th>Actions</th>
                             </tr>

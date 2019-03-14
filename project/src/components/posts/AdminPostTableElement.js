@@ -24,8 +24,7 @@ export default class AdminPostTableElement extends Component {
             ? <td className="bg-warning">{expireDate.toLocaleDateString()}</td> 
             : <td>{expireDate.toLocaleDateString()}</td> 
             }
-            <td>
-                <Link to={`/post/edit/${this.props._id}`} className="btn btn-sm btn-warning" >Edit</Link> 
+            <td>                
                 <button onClick={() => this.props.delete(this.props._id)} className="btn btn-sm btn-danger" >Delete</button>
                 <button onClick={() => this.props.changeStatus(this.props._id)} className="btn btn-sm btn-dark" >{this.props.isActive ? "Deactivate" : "Activate"}</button>
             </td>
