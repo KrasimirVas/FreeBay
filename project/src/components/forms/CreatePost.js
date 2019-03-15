@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import fetcher from '../../fetchFunctions';
 import { toast } from 'react-toastify';
+import createPostValidator from '../validators/CreatePostValidator';
+
 
 const categoryAllPath = 'categories/all';
 const postCreatePath = 'post/create';
@@ -20,6 +22,7 @@ export default class PostCreateForm extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        
     }
 
     componentDidMount () {
@@ -42,12 +45,18 @@ export default class PostCreateForm extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        if (!createPostValidator(this.state.title 
+            , this.state.description, this.state.image)) {
+            return
+          }
+       
         let body = {
             title:  this.state.title,            
             category:  this.state.category === '' ? this.state.categories[0]._id : this.state.category,
             description:  this.state.description,
             image:  this.state.image,
         };
+        
 
         fetcher.post(postCreatePath, body, res => {
             if(res.error) {
@@ -58,6 +67,7 @@ export default class PostCreateForm extends Component {
             this.props.history.push('/');
         })
     }
+    
 
     render() {
         return (

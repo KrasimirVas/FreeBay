@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import registerValidator from '../validators/RegisterValidator';
 
 import fetcher from '../../fetchFunctions';
 import { toast } from 'react-toastify';
@@ -26,9 +27,11 @@ class Register extends Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        if (this.state.password !== this.state.confirmPassword) {
-            return;
-        }
+        if (!registerValidator(this.state.username 
+            , this.state.password, this.state.confirmPassword)) {
+            return false;
+            }
+        
 
         fetcher.post(authRegisterPath, this.state, res => {
             if (res.error) {
