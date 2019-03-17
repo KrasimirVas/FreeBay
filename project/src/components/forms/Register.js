@@ -4,7 +4,7 @@ import registerValidator from '../validators/RegisterValidator';
 import fetcher from '../../fetchFunctions';
 import { toast } from 'react-toastify';
 
-const authRegisterPath = 'auth/register';
+const register_endpoint = 'auth/register';
 
 class Register extends Component {
     constructor(props) {
@@ -33,7 +33,7 @@ class Register extends Component {
             }
         
 
-        fetcher.post(authRegisterPath, this.state, res => {
+        fetcher.post(register_endpoint, this.state, res => {
             if (res.error) {
                 toast.error(res.error);
                 return;

@@ -5,8 +5,8 @@ import fetcher from '../../fetchFunctions';
 import SubMenu from '../common/SubMenu';
 import MessageTableElement from '../messages/MessageTableEl';
 
-const MESSAGES_ENDPOINT = 'messages/all';
-const MESSAGES_READ_ENDPOINT = 'messages/read';
+const messages_endpoint = 'messages/all';
+const messagesRead_endpoint = 'messages/read';
 
 export default class MyMessages extends Component {
     constructor(props) {
@@ -25,7 +25,7 @@ export default class MyMessages extends Component {
     }
 
     fetchMessages () {
-        fetcher.get(MESSAGES_ENDPOINT, res => {
+        fetcher.get(messages_endpoint, res => {
             if (res.err) {
                 toast.error(res.err);
                 return;
@@ -42,7 +42,7 @@ export default class MyMessages extends Component {
             id
         };
 
-        fetcher.post(MESSAGES_READ_ENDPOINT, body, res => {
+        fetcher.post(messagesRead_endpoint, body, res => {
             if (res.error) {
                 toast.error(res.err);
 

@@ -4,7 +4,7 @@ import fetcher from '../../fetchFunctions';
 
 import Post from '../posts/Post';
 
-const POSTS_BY_CATEGORY_ENDPOINT = 'posts/category';
+const postCategory_endpoint = 'posts/category';
 
 export default class MyPosts extends Component {
     constructor(props) {
@@ -18,7 +18,7 @@ export default class MyPosts extends Component {
 
     componentDidMount() {
         let id = this.props.match.params.id;
-        fetcher.get(POSTS_BY_CATEGORY_ENDPOINT + `?id=${id}`, res => {
+        fetcher.get(postCategory_endpoint + `?id=${id}`, res => {
             if (res.err) {
                 toast.error(res.err);
                 return;

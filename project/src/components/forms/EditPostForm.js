@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import fetcher from '../../fetchFunctions';
 import { toast } from 'react-toastify';
 
-const categoryAllPath = 'categories/all';
-const postEditPath = 'post/edit';
+const categoryAll_endpoint = 'categories/all';
+const editPost_endpoint = 'post/edit';
 
 export default class PostCreateForm extends Component {
     constructor(props){
@@ -25,7 +25,7 @@ export default class PostCreateForm extends Component {
     componentDidMount () {
         let id = this.props.match.params.id;
 
-        fetcher.get(categoryAllPath, data => {
+        fetcher.get(categoryAll_endpoint, data => {
             if (data.error) {
                 toast.error(data.error);
                 this.props.history.push('/');
@@ -33,7 +33,7 @@ export default class PostCreateForm extends Component {
                 return;
             }
 
-            fetcher.get(postEditPath + `?id=${id}`, res => {
+            fetcher.get(editPost_endpoint + `?id=${id}`, res => {
                 if (res.error) {
                     toast.error(res.error);
 
@@ -66,7 +66,7 @@ export default class PostCreateForm extends Component {
             image:  this.state.image,
         };
 
-        fetcher.post(postEditPath, body, res => {
+        fetcher.post(editPost_endpoint, body, res => {
             if(res.error) {
                 toast.error(res.error);
             }

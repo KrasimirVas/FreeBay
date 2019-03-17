@@ -9,9 +9,7 @@ let categorySchema = new mongoose.Schema({
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'Post'
     }],
-    faIcon: {
-        type:mongoose.SchemaTypes.String
-    }
+
 })
 
 let Category = mongoose.model('Category', categorySchema);

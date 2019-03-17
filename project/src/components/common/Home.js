@@ -4,7 +4,7 @@ import fetcher from '../../fetchFunctions';
 import Post from '../posts/Post';
 import Categories from '../categories/Categories';
 
-const SEARCH_ENDPOINT = 'posts/search';
+
 
 class Home extends Component {
     constructor(props){

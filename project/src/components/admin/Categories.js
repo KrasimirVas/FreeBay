@@ -5,7 +5,7 @@ import fetcher from '../../fetchFunctions';
 import SubMenu from '../common/SubMenu';
 import AdminCategoryTableElement from '../categories/adminCategoryEl';
 
-const allCategories = 'admin/categories';
+const categories_endpoint = 'admin/categories';
 
 export default class Categories extends Component {
     constructor(props) {
@@ -21,7 +21,7 @@ export default class Categories extends Component {
     }
 
     fetchCategories() {
-        fetcher.get(allCategories, res => {
+        fetcher.get(categories_endpoint, res => {
             if (res.err) {
                 toast.error(res.err);
                 return;
@@ -38,7 +38,7 @@ export default class Categories extends Component {
             <div className="container">
                 <SubMenu />
                 <div className="row">
-                    <table className="table table-striped table-bordered">
+                    <table id="admin-table">
                         <thead>
                             <tr>
                                 <th>N</th>

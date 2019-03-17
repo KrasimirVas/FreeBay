@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 
-import Home from './components/common/Home-todo';
+import Home from './components/common/Home';
 import Logout from './components/common/Logout';
 import NotFound from './components/common/NotFound';
 

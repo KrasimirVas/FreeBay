@@ -5,8 +5,8 @@ import fetcher from '../../fetchFunctions';
 import PostTableElement from '../posts/PostTableElement';
 import SubMenu from '../common/SubMenu';
 
-const myPostPath = 'posts/myposts';
-const postChangeStatus = 'post/changestatus';
+const myPost_endpoint = 'posts/myposts';
+const postChangeStatus_endpoint = 'post/changestatus';
 
 export default class MyPosts extends Component {
     constructor(props) {
@@ -24,7 +24,7 @@ export default class MyPosts extends Component {
     }
 
     fetchPosts() {
-        fetcher.get(myPostPath, res => {
+        fetcher.get(myPost_endpoint, res => {
             if (res.err) {
                 toast.error(res.err);
                 return;
@@ -41,7 +41,7 @@ export default class MyPosts extends Component {
             postId: id
         };
 
-        fetcher.post(postChangeStatus, body, res => {
+        fetcher.post(postChangeStatus_endpoint, body, res => {
             if (res.error) {
                 toast.error(res.error);
                 

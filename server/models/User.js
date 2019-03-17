@@ -27,10 +27,7 @@ let userSchema = new mongoose.Schema({
         type:mongoose.SchemaTypes.ObjectId,
         ref: 'Message'
     }],
-    favourites: [{
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: 'Post'
-    }],
+
     isDisabled:{
         type: mongoose.SchemaTypes.Boolean,
         default: false

@@ -5,8 +5,8 @@ import fetcher from '../../fetchFunctions';
 import AdminUserTableElement from '../users/AdminUserTableElement';
 import SubMenu from '../common/SubMenu';
 
-const usersPath = 'admin/allusers';
-const disableUserPath = 'admin/user/changestatus';
+const users_endpoint = 'admin/allusers';
+const disableUsers_endpoint = 'admin/user/changestatus';
 
 export default class Users extends Component {
     constructor(props) {
@@ -24,7 +24,7 @@ export default class Users extends Component {
     }
 
     fetchUsers() {
-        fetcher.get(usersPath, res => {
+        fetcher.get(users_endpoint, res => {
             if (res.err) {
                 toast.error(res.err);
                 return;
@@ -40,7 +40,7 @@ export default class Users extends Component {
         let body = {
             userId: id
         }
-        fetcher.post(disableUserPath, body, res => {
+        fetcher.post(disableUsers_endpoint, body, res => {
             debugger
             if (res.error) {
                 toast.error(res.error);
@@ -57,7 +57,7 @@ export default class Users extends Component {
             <div className="container">
                 <SubMenu />
                 <div className="row">
-                    <table className="table table-striped table-bordered">
+                    <table id="admin-table">
                         <thead>
                             <tr>
                                 <th>N</th>

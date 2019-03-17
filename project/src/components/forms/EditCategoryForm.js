@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import fetcher from '../../fetchFunctions';
 import { toast } from 'react-toastify';
 
-const categoryEditPath = 'categories/edit';
+const categoryEdit_endpoint = 'categories/edit';
 
 export default class CategoryEditForm extends Component {
     constructor(props){
@@ -20,7 +20,7 @@ export default class CategoryEditForm extends Component {
     componentDidMount () {
         let id = this.props.match.params.id;
 
-        fetcher.get(categoryEditPath + `?id=${id}`, res => {
+        fetcher.get(categoryEdit_endpoint + `?id=${id}`, res => {
             if (res.error) {
                 toast.error(res.error);
                 return;
@@ -44,7 +44,7 @@ export default class CategoryEditForm extends Component {
             id: this.state.id
         };
 
-        fetcher.post(categoryEditPath, body, res => {
+        fetcher.post(categoryEdit_endpoint, body, res => {
             if (res.error) {
                 toast.error(res.error);
                 return;

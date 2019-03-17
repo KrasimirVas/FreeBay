@@ -5,8 +5,8 @@ import { toast } from 'react-toastify';
 import createPostValidator from '../validators/CreatePostValidator';
 
 
-const categoryAllPath = 'categories/all';
-const postCreatePath = 'post/create';
+const categoryAll_endpoint = 'categories/all';
+const postCreate_endpoint = 'post/create';
 
 export default class PostCreateForm extends Component {
     constructor(props){
@@ -26,7 +26,7 @@ export default class PostCreateForm extends Component {
     }
 
     componentDidMount () {
-        fetcher.get(categoryAllPath, data => {
+        fetcher.get(categoryAll_endpoint, data => {
             if (data.error) {
                 toast.error(data.error);
                 this.props.history.push('/');
@@ -58,7 +58,7 @@ export default class PostCreateForm extends Component {
         };
         
 
-        fetcher.post(postCreatePath, body, res => {
+        fetcher.post(postCreate_endpoint, body, res => {
             if(res.error) {
                 toast.error(res.error);
             }

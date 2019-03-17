@@ -7,7 +7,7 @@ function Footer() {
         <footer>
             
             <div >
-              © The best site for 2019
+              ©FreeBay - The best site for free ads 
             </div>
         </footer>
     );

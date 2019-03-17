@@ -9,8 +9,6 @@ body {
   font-weight: bold;
 }
 
-
-
 .category-container {
   background-color: rgb(158, 244, 166);
   border-radius: 6px;
@@ -27,12 +25,13 @@ body {
   text-decoration: none;
   color: black;
   font-size: 25px;
-  padding:5px 7px;
+  padding: 5px 7px;
   font-weight: bold;
 }
+
 .category-bar a:hover {
- background-color: rgb(6, 80, 43);
- color:white;
+  background-color: rgb(6, 80, 43);
+  color: white;
 }
 
 .menu-bar {
@@ -40,39 +39,36 @@ body {
   background: #161616;
   padding: 0px 50px;
 }
+
 .navigation {
   overflow: hidden;
   background-color: #161616;
   padding: 20px 100px;
-  display:flex;
+  display: flex;
   justify-content: space-between;
-  cursor:pointer;
-
+  cursor: pointer;
 }
+
 .second-nav {
   background-color: #161616;
   padding: 20px 100px;
-  display:flex;
+  display: flex;
   justify-content: center;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .navigation a, .second-nav a {
-
- text-align: center;
- color: #ffffff;
- font-size: 25px;
- padding-bottom: 8.5px;
- padding-left: 10px;
- padding-right: 10px;
- 
- 
+  text-align: center;
+  color: #ffffff;
+  font-size: 25px;
+  padding-bottom: 8.5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
+
 .second-nav a {
-text-decoration: none;
+  text-decoration: none;
 }
-
-
 
 .menu-bar li {
   list-style-type: none;
@@ -90,12 +86,9 @@ text-decoration: none;
 }
 
 .second-nav a:hover, .navigation a:hover {
-  
   background-color: dodgerblue;
   text-decoration: none;
-  
 }
-
 
 #nav-username {
   color: dodgerblue;
@@ -108,18 +101,16 @@ text-decoration: none;
 #site-logo {
   height: 70px;
   width: auto;
-  margin-right:30px;
+  margin-right: 30px;
   font-weight: bold;
-  color:blue;
+  color: blue;
   font-style: italic;
   letter-spacing: 5px;
-  
 }
 
-
-footer{
+footer {
   background-color: #161616;
-  color:#a3a3a3;
+  color: #a3a3a3;
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -127,13 +118,11 @@ footer{
   font-weight: 600;
   padding: 5px 0;
   font-size: 1.5rem;
-  
 }
-.push{
+
+.push {
   height: 70px;
 }
-
-
 
 #not-found-head {
   color: rgb(13, 106, 163);
@@ -151,8 +140,7 @@ footer{
 
 .selected {
   color: blue !important;
-  
-  font-style:italic;
+  font-style: italic;
 }
 
 .table-image {
@@ -185,32 +173,37 @@ footer{
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.card-container{
-  display:flex;
-  width:100%;
-  flex-wrap:wrap;
-}
-.card-listing{
-  width:20%;
-  margin:10px;
-  padding:2px;
-  border:1px solid grey;
+
+.card-container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
-.card-listing:hover{  
-  box-shadow: 0 1px 5rem rgba(0,0,0,0.5);
+.card-listing {
+  width: 20%;
+  
+  margin: 10px;
+  padding: 2px;
+  border: 1px solid grey;
+}
+
+.card-listing:hover {
+  box-shadow: 0 1px 5rem rgba(0, 0, 0, 0.5);
   transform: scale(1.1);
   border: none;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   z-index: 1;
 }
+
 .login form {
   display: grid;
   width: 25%;
   margin: 0 auto;
 }
-.login label{
-  font-size:1.2rem;
+
+.login label {
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
@@ -220,29 +213,30 @@ footer{
   border-radius: 7px;
 }
 
-.login input[type="submit"]{  
+.login input[type="submit"] {
   width: 35%;
-  margin:0 auto;
+  margin: 0 auto;
   border: 2px solid dodgerblue;
-  text-align: center;  
+  text-align: center;
   font-size: 14px;
   background: dodgerblue;
   color: white;
   border-radius: 7px;
-  margin-top: 20px; 
-  box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.5); 
+  margin-top: 20px;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
-.login input[type="submit"]:hover{
+.login input[type="submit"]:hover {
   color: dodgerblue;
   background: transparent;
   font-weight: bold;
 }
 
-.register{
+.register {
   padding-top: 2em;
 }
-.register label{
+
+.register label {
   font-weight: bold;
 }
 
@@ -258,29 +252,30 @@ footer{
   border-radius: 7px;
 }
 
-.register input[type="submit"]{  
+.register input[type="submit"] {
   width: 25%;
-  margin:0 auto;
+  margin: 0 auto;
   border: 2px solid dodgerblue;
-  text-align: center;  
+  text-align: center;
   font-size: 14px;
   background: dodgerblue;
   color: white;
   border-radius: 7px;
-  margin-top: 20px; 
-  box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.5); 
+  margin-top: 20px;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
-.register input[type="submit"]:hover{
+.register input[type="submit"]:hover {
   color: dodgerblue;
   background: transparent;
   font-weight: bold;
 }
 
-.createPost, .editPost{
+.createPost, .editPost {
   padding-top: 2em;
 }
-.createPost label, .editPost label{
+
+.createPost label, .editPost label {
   font-weight: bold;
 }
 
@@ -294,89 +289,134 @@ footer{
   padding: 10px;
   margin-bottom: 5px;
   border-radius: 7px;
-  width:50%;
+  width: 50%;
 }
-#description{
-  width:50%;
+
+#description {
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 7px;
 }
 
-.createPost input[type="submit"]{  
+.createPost input[type="submit"] {
   width: 25%;
-  margin:0 auto;
+  margin: 0 auto;
   border: 2px solid dodgerblue;
-  text-align: center;  
+  text-align: center;
   font-size: 14px;
   background: dodgerblue;
   color: white;
   border-radius: 7px;
-  
-  box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.5); 
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
-.createPost input[type="submit"]:hover{
+.createPost input[type="submit"]:hover {
   color: dodgerblue;
   background: transparent;
   font-weight: bold;
 }
-#selectForm select{
-  
-  width:50%;
+
+#selectForm select {
+  width: 50%;
 }
-#editBtn{ 
+
+#editBtn {
   width: 25%;
-  margin:0 auto;
+  margin: 0 auto;
   border: 2px solid black;
-  text-align: center;  
+  text-align: center;
   font-size: 14px;
   background: rgb(255, 221, 30);
   color: black;
   border-radius: 7px;
   font-weight: bold;
-  
-  box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.5); 
-}
-.card-wrapper{
-  margin-top:20px;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
-.card-wrapper img{
-  width:50%;
+.card-wrapper {
+  margin-top: 20px;
+}
+
+.card-wrapper img {
+  width: 50%;
   height: auto;
   background-color: rgb(134, 170, 211);
-  padding:1px;
-   border:1px solid #173464;
+  padding: 1px;
+  border: 1px solid #173464;
 }
-.card-description{
-  border:1px solid grey;
-  width:50%;
-  margin:0 auto;
+
+.card-description {
+  border: 1px solid grey;
+  width: 50%;
+  margin: 0 auto;
 }
-#message{
-  width:50%;
-  margin:0 auto;
-  border-radius:8px;
-  border:1px solid grey;
+
+#message {
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 1px solid grey;
 }
-.messageForm input[type="submit"]{  
+
+.messageForm input[type="submit"] {
   width: 20%;
-  margin:0 auto;
+  margin: 0 auto;
   border: 2px solid dodgerblue;
-  text-align: center;  
+  text-align: center;
   font-size: 14px;
   background: dodgerblue;
   color: white;
   border-radius: 7px;
-  margin-top: 20px; 
-  box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.5); 
-  padding:4px;
+  margin-top: 20px;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
+  padding: 4px;
 }
 
-.messageForm input[type="submit"]:hover{
+.messageForm input[type="submit"]:hover {
   color: dodgerblue;
   background: transparent;
   font-weight: bold;
+}
+
+#admin-table {
+  width: 100%;
+  table-layout: fixed;
+  border: 1px solid black;
+  border-spacing: 0;
+  border-collapse: collapse;
+  text-align: center;
+  margin-left: 1%;
+  margin-right: 1%;
+  text-align: center;
+  background: white;
+  font-size: 1rem;
+}
+
+#admin-table td {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+#admin-table th {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+#admin-table thead th {
+  text-align: center;
+  background: rgb(30, 30, 30);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+#admin-table tr:hover td {
+  background: dodgerblue;
+  color: black;
+  border-color: transparent;
+}
+#readMore{
+
 }
 

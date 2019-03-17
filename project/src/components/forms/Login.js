@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import fetcher from '../../fetchFunctions';
 import jwt from 'jwt-decode';
 
-const loginAuthPath = 'auth/login';
+const login_endpoint = 'auth/login';
 
 class Login extends Component {
     constructor(props) {
@@ -24,7 +24,7 @@ class Login extends Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        fetcher.post(loginAuthPath, this.state, res => {
+        fetcher.post(login_endpoint, this.state, res => {
             if (res.error) {
                 toast.error(res.error);
                 return;

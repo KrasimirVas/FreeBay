@@ -4,7 +4,7 @@ import SubMenu from '../common/SubMenu';
 import fetcher from '../../fetchFunctions';
 import { toast } from 'react-toastify';
 
-const USER_ENDPOINT = 'user'
+const user_endpoint = 'user'
 
 export default class ProfilePage extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ export default class ProfilePage extends Component {
     }
 
     componentDidMount() {
-        fetcher.get(USER_ENDPOINT, res => {
+        fetcher.get(user_endpoint, res => {
             if (res.error) {
                 toast.error(res.error);
                 this.props.history.push('/login');

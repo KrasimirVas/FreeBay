@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import fetcher from '../../fetchFunctions';
 import { toast } from 'react-toastify';
 
-const allCategoryPath = 'categories/all';
+const allCategory_endpoint = 'categories/all';
 export default class Categories extends Component {
     constructor(props) {
         super(props);
@@ -14,7 +14,7 @@ export default class Categories extends Component {
         }
     }
     componentDidMount() {
-        fetcher.get(allCategoryPath, res => {
+        fetcher.get(allCategory_endpoint, res => {
             if (res.error) {
                 toast.error(res.error);
                 return;

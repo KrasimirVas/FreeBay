@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import fetcher from '../../fetchFunctions';
 import { toast } from 'react-toastify';
 
-const categoryCreatePath = 'categories/create';
+const createCategory_endpoint = 'categories/create';
 
 export default class PostCreateForm extends Component {
     constructor(props){
@@ -23,7 +23,7 @@ export default class PostCreateForm extends Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        fetcher.post(categoryCreatePath, this.state, res => {
+        fetcher.post(createCategory_endpoint, this.state, res => {
             if (res.error) {
                 toast.error(res.error);
                 return;

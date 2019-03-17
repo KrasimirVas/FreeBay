@@ -5,9 +5,9 @@ import fetcher from '../../fetchFunctions';
 import AdminPostTableElement from '../posts/AdminPostTableElement';
 import SubMenu from '../common/SubMenu';
 
-const allPostPath = 'admin/allposts';
-const deletePostPath = 'post/delete';
-const changeStatusPostPath = 'post/changestatus';
+const allPost_endpoint = 'admin/allposts';
+const deletePost_endpoint = 'post/delete';
+const changeStatusPost_endpoint = 'post/changestatus';
 
 export default class Posts extends Component {
     constructor(props) {
@@ -26,7 +26,7 @@ export default class Posts extends Component {
     }
 
     fetchPosts() {
-        fetcher.get(allPostPath, res => {
+        fetcher.get(allPost_endpoint, res => {
             if (res.err) {
                 toast.error(res.err);
                 return;
@@ -43,7 +43,7 @@ export default class Posts extends Component {
             postId: id
         };
 
-        fetcher.post(deletePostPath, body, res => {
+        fetcher.post(deletePost_endpoint, body, res => {
             if (res.error) {
                 toast.error(res.error);
                 
@@ -61,7 +61,7 @@ export default class Posts extends Component {
             postId: id
         };
 
-        fetcher.post(changeStatusPostPath, body, res => {
+        fetcher.post(changeStatusPost_endpoint, body, res => {
             if (res.error) {
                 toast.error(res.error);
                 
