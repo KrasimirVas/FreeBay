@@ -1,4 +1,4 @@
-React JS Free Things
+ReactJS FreeBay
 Idea
 
 An application that stores ads for free stuff.
